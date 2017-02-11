@@ -152,7 +152,7 @@ public class TextToSpeech {
     private void buildAuthenticationHeader(HttpRequestBase httpGet) {
         if (_instance.tConfig.isAuthNeeded) {
             // use token based authentication if possible, otherwise Basic Authentication will be used
-            if (tConfig.hasTokenProvider()) {
+            if (_instance.tConfig.hasTokenProvider()) {
                 Log.d(TAG, "using token based authentication");
                 httpGet.setHeader("X-Watson-Authorization-Token", _instance.tConfig.requestToken());
             }

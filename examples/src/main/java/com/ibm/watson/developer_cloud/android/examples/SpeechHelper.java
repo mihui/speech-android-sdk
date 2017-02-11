@@ -32,7 +32,7 @@ public class SpeechHelper {
             sConfig.basicAuthUsername = context.getString(R.string.STTUsername);
             sConfig.basicAuthPassword = context.getString(R.string.STTPassword);
 
-            String tokenFactoryURL = context.getString(R.string.defaultTokenFactory);
+            String tokenFactoryURL = context.getString(R.string.STTTokenFactory);
             // token factory is the preferred authentication method (service credentials are not distributed in the client app)
             if (!tokenFactoryURL.equals(context.getString(R.string.defaultTokenFactory))) {
                 // SpeechToText.sharedInstance().setTokenProvider(new MyTokenProvider(tokenFactoryURL));
@@ -51,9 +51,9 @@ public class SpeechHelper {
             tConfig.codec = TTSConfiguration.CODEC_OPUS;
             tConfig.appContext = context.getApplicationContext();
 
-            String tokenFactoryURL = context.getString(R.string.defaultTokenFactory);
+            String tokenFactoryURL = context.getString(R.string.TTSTokenFactory);
             // token factory is the preferred authentication method (service credentials are not distributed in the client app)
-            if (tokenFactoryURL.equals(context.getString(R.string.defaultTokenFactory)) == false) {
+            if (!tokenFactoryURL.equals(context.getString(R.string.defaultTokenFactory))) {
 //                TextToSpeech.sharedInstance().setTokenProvider(new MyTokenProvider(tokenFactoryURL));
                 tConfig.setTokenProvider(new MyTokenProvider(tokenFactoryURL));
             }

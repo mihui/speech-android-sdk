@@ -164,8 +164,8 @@ public class SpeechToText {
             HashMap<String, String> header = new HashMap<String, String>();
             header.put("Content-Type", sConfig.audioFormat + "; rate=" + sConfig.audioSampleRate);
 
-            if (sConfig.isAuthNeeded) {
-                if (sConfig.hasTokenProvider()) {
+            if (_instance.sConfig.isAuthNeeded) {
+                if (_instance.sConfig.hasTokenProvider()) {
                     header.put("X-Watson-Authorization-Token", sConfig.requestToken());
                     Log.d(TAG, "ws connecting with token based authentication");
                 } else {
