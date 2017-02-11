@@ -4,6 +4,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_tts_customization">TTS customization</string>
     <string name="buttonRecord">start recording</string>
+    <string name="viewFlipInterval">300</string>
 
     <string name="sttTitle">IBM Speech to Text</string>
     <string name="sttInstructions">To get started choose an audio model based on the language you will be speaking. Then press Record to transcribe audio.</string>
@@ -27,6 +28,8 @@
     <string name="defaultPassword">&lt;password&gt;</string>
 
     <string name="defaultTokenFactory">&lt;token-factory-url&gt;</string>
+    <string name="STTTokenFactory">&lt;token-factory-url&gt;</string>
+    <string name="TTSTokenFactory">&lt;token-factory-url&gt;</string>
 
     <!-- TTS default prompts -->
     <string name="ttsEnglishPrompt">Conscious of its spiritual and moral heritage, the Union is founded on the indivisible, universal values of human dignity, freedom, equality and solidarity; it is based on the principles of democracy and the rule of law. It places the individual at the heart of its activities, by establishing the citizenship of the Union and by creating an area of freedom, security and justice.</string>
