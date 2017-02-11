@@ -19,11 +19,11 @@ public class BaseConfiguration {
     //
     public String basicAuthUsername;
     public String basicAuthPassword;
-    public URI apiEndpoint;
+    protected URI apiEndpoint;
     public String apiURL;
 
     public String token = null;
-    protected ITokenProvider tokenProvider = null;
+    private ITokenProvider tokenProvider = null;
 
     // Indicates whether to opt out of data collection for the request sent over the connection.
     // If true, no data is collected; if false (the default), data is collected for the request and results.
@@ -58,7 +58,7 @@ public class BaseConfiguration {
      * @param refreshCache if set to true, the token will be automatically refreshed
      * @return String
      */
-    public String requestToken(boolean refreshCache){
+    private String requestToken(boolean refreshCache){
         if(this.token == null || refreshCache) {
             if(this.tokenProvider != null)
                 this.token = this.tokenProvider.getToken();

@@ -599,6 +599,9 @@ public class MainActivity extends Activity {
             Spinner spinner = (Spinner)mView.findViewById(R.id.spinnerVoices);
             ItemVoice item = (ItemVoice)spinner.getSelectedItem();
             String strVoice = null;
+            if(item == null) {
+                return strVoice;
+            }
             try {
                 strVoice = item.mObject.getString("name");
             } catch (JSONException e) {
@@ -766,7 +769,7 @@ public class MainActivity extends Activity {
 
 		//Get text from text box
 		textTTS = (TextView)fragmentTabTTS.mView.findViewById(R.id.prompt);
-		String ttsText=textTTS.getText().toString();
+		String ttsText = textTTS.getText().toString();
 		Log.d(TAG, ttsText);
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(textTTS.getWindowToken(),
