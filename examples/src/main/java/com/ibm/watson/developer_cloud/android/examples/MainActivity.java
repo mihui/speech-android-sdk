@@ -59,7 +59,6 @@ import com.ibm.watson.developer_cloud.android.text_to_speech.v1.TextToSpeech;
 import com.ibm.watson.developer_cloud.android.speech_common.v1.ITokenProvider;
 import com.ibm.watson.developer_cloud.android.text_to_speech.v1.dto.TTSConfiguration;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -717,35 +716,6 @@ public class MainActivity extends Activity {
         //actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#B5C0D0")));
 	}
 
-    static class MyTokenProvider implements ITokenProvider {
-
-        String m_strTokenFactoryURL = null;
-
-        public MyTokenProvider(String strTokenFactoryURL) {
-            m_strTokenFactoryURL = strTokenFactoryURL;
-        }
-
-        public String getToken() {
-
-            Log.d(TAG, "attempting to get a token from: " + m_strTokenFactoryURL);
-            try {
-                // DISCLAIMER: the application developer should implement an authentication mechanism from the mobile app to the
-                // server side app so the token factory in the server only provides tokens to authenticated clients
-                HttpClient httpClient = new DefaultHttpClient();
-                HttpGet httpGet = new HttpGet(m_strTokenFactoryURL);
-                HttpResponse executed = httpClient.execute(httpGet);
-                InputStream is = executed.getEntity().getContent();
-                StringWriter writer = new StringWriter();
-                IOUtils.copy(is, writer, "UTF-8");
-                String strToken = writer.toString();
-                Log.d(TAG, strToken);
-                return strToken;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

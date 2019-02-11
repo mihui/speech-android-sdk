@@ -1,11 +1,9 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 27
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 16
+        targetSdkVersion 27
     }
     buildTypes {
         release {
@@ -15,10 +13,11 @@ android {
     }
     productFlavors {
     }
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
-    compile files('libs/java_websocket.jar')
-    compile files('libs/commons-io-2.4.jar')
-    compile files('libs/jna.jar')
+    implementation files('libs/java_websocket.jar')
+    implementation files('libs/commons-io-2.6.jar')
+    implementation files('libs/jna.jar')
 }

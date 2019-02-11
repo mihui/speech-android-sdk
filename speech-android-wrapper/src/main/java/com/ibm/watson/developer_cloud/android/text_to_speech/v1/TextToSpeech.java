@@ -31,6 +31,7 @@ import com.ibm.watson.developer_cloud.android.text_to_speech.v1.dto.TTSVoiceCust
 import com.ibm.watson.developer_cloud.android.text_to_speech.v1.dto.TTSCustomWord;
 
 import org.apache.commons.io.IOUtils;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -44,7 +45,6 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
-
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.CoreConnectionPNames;
 import org.json.JSONArray;
@@ -140,7 +140,7 @@ public class TextToSpeech {
         thread.start();
     }
 
-    public void stopAudio(){
+    private void stopAudio(){
         if (audioTrack != null && audioTrack.getState() != AudioTrack.STATE_UNINITIALIZED ) {
             // IMPORTANT: NOT use stop()
             // For an immediate stop, use pause(), followed by flush() to discard audio data that hasn't been played back yet.
